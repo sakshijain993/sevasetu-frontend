@@ -1,0 +1,264 @@
+.register-page {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background: transparent;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 450px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+
+    box-shadow: 0 12px 35px rgba(80, 60, 120, 0.10);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+.register-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(80, 60, 120, 0.14);
+}
+
+/* Top colorful line */
+.register-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #ff6b35,
+        #ec4899,
+        #7c3aed,
+        #06b6d4
+    );
+}
+
+.register-card h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    color: #ff6b35;
+
+    background: none;
+    -webkit-text-fill-color: #ff6b35;
+}
+
+.register-subtitle {
+    margin: 10px 0 30px;
+
+    text-align: center;
+
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+
+    font-size: 15px;
+    color: #17211c;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-group input:focus {
+    border-color: #ff6b35;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 107, 53, 0.10),
+        0 5px 15px rgba(255, 107, 53, 0.08);
+}
+
+/* Register Button */
+.register-btn {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #ff6b35,
+        #ec4899
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 18px rgba(255, 107, 53, 0.20);
+
+    transition: 0.3s ease;
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 24px rgba(255, 107, 53, 0.28);
+}
+
+/* Login text */
+.login-text {
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #ff6b35;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.login-text a:hover {
+    color: #ec4899;
+}
+
+/* Auth Modal */
+.auth-overlay .register-card {
+    position: relative;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+}
+
+/* Close Button */
+.auth-close {
+    position: absolute;
+
+    top: 12px;
+    right: 16px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 107, 53, 0.10);
+
+    color: #ff6b35;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.auth-close:hover {
+    background: #ff6b35;
+    color: white;
+
+    transform: rotate(90deg);
+}
+
+/* Login / Register Switch */
+.auth-switch {
+    border: none;
+
+    background: none;
+
+    color: #ff6b35;
+
+    font-size: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.auth-switch:hover {
+    color: #ec4899;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .register-page {
+        padding: 30px 15px;
+    }
+
+    .register-card {
+        padding: 30px 22px;
+
+        border-radius: 16px;
+    }
+
+    .register-card h1 {
+        font-size: 26px;
+    }
+}

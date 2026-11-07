@@ -1,0 +1,972 @@
+/* =========================================================
+   SEVASETU - ORGANIZATIONS PAGE
+========================================================= */
+
+.organizations-page {
+    min-height: 100vh;
+    padding-bottom: 90px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 5% 10%, rgba(255, 103, 55, 0.12), transparent 25%),
+        radial-gradient(circle at 95% 35%, rgba(117, 87, 232, 0.12), transparent 28%),
+        radial-gradient(circle at 45% 100%, rgba(67, 198, 217, 0.09), transparent 28%),
+        #fffaf6;
+
+    color: #17211c;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.organizations-hero {
+    min-height: 430px;
+    padding: 75px 7% 70px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff0e7 0%,
+            #fff9f4 45%,
+            #eeeaff 100%
+        );
+}
+
+
+/* decorative circles */
+
+.organizations-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: 7%;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(117, 87, 232, 0.11);
+
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+
+.organizations-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    left: -50px;
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    border: 25px solid rgba(255, 90, 42, 0.10);
+
+    animation: heroRotate 12s linear infinite;
+}
+
+
+.organizations-hero-content {
+    max-width: 800px;
+
+    position: relative;
+    z-index: 2;
+
+    animation: heroContentIn 0.9s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.organizations-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    color: #f0441e;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    border: 1px solid rgba(240, 68, 30, 0.12);
+
+    box-shadow: 0 8px 25px rgba(40, 30, 20, 0.05);
+
+    animation: labelPulse 3s ease-in-out infinite;
+}
+
+
+.organizations-hero h1 {
+    margin: 22px 0 18px;
+
+    max-width: 760px;
+
+    font-size: clamp(48px, 6vw, 78px);
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+
+    font-weight: 850;
+
+    color: #17211c;
+}
+
+
+.organizations-hero h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5a2a,
+            #f0441e,
+            #7557e8
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-size: 180% auto;
+
+    animation: gradientFlow 5s linear infinite;
+}
+
+
+.organizations-hero p {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #68736e;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* Hero decorative star */
+
+.organizations-hero-shape {
+    position: absolute;
+
+    right: 15%;
+    bottom: 65px;
+
+    width: 85px;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    color: #ff5a2a;
+
+    font-size: 38px;
+
+    transform: rotate(12deg);
+
+    box-shadow:
+        0 20px 50px rgba(40, 30, 20, 0.08);
+
+    animation:
+        shapeFloat 4s ease-in-out infinite,
+        shapeRotate 8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   SEARCH + FILTER
+========================================================= */
+
+.organizations-tools {
+    max-width: 1250px;
+
+    margin: -35px auto 0;
+
+    padding: 0 25px;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+.organization-search {
+    max-width: 580px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 17px 21px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(23, 33, 28, 0.08);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 18px 45px rgba(40, 30, 20, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.organization-search:focus-within {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 22px 55px rgba(40, 30, 20, 0.14);
+
+    border-color: rgba(255, 90, 42, 0.25);
+}
+
+
+.organization-search svg {
+    color: #ff5a2a;
+    flex-shrink: 0;
+}
+
+
+.organization-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    color: #17211c;
+    font-size: 14px;
+}
+
+
+.organization-search input::placeholder {
+    color: #9aa29e;
+}
+
+
+/* Filters */
+
+.organization-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.organization-filters button {
+    padding: 9px 17px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(23, 33, 28, 0.09);
+
+    background: rgba(255, 255, 255, 0.7);
+
+    color: #59635e;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.organization-filters button:hover {
+    transform: translateY(-3px);
+
+    background: #ffffff;
+
+    color: #17211c;
+
+    box-shadow:
+        0 8px 20px rgba(40, 30, 20, 0.08);
+}
+
+
+.organization-filters .filter-active {
+    background: #17211c;
+
+    color: #ffffff;
+
+    border-color: #17211c;
+
+    box-shadow:
+        0 8px 20px rgba(23, 33, 28, 0.18);
+}
+
+
+/* =========================================================
+   ORGANIZATION LIST
+========================================================= */
+
+.organizations-list {
+    max-width: 1250px;
+
+    margin: 105px auto 0;
+
+    padding: 0 25px;
+}
+
+
+.organizations-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 40px;
+
+    margin-bottom: 42px;
+}
+
+
+.organizations-heading > div {
+    max-width: 650px;
+}
+
+
+.organizations-heading span {
+    color: #ff5a2a;
+
+    font-size: 11px;
+    font-weight: 850;
+
+    letter-spacing: 1.7px;
+}
+
+
+.organizations-heading h2 {
+    margin: 12px 0 0;
+
+    font-size: clamp(34px, 4vw, 53px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    color: #17211c;
+}
+
+
+.organizations-heading h2 span {
+    display: inline;
+
+    font-size: inherit;
+    letter-spacing: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5a2a,
+            #7557e8
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.organizations-heading p {
+    max-width: 350px;
+
+    margin: 0;
+
+    color: #737d78;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ORGANIZATION GRID
+========================================================= */
+
+.organization-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   ORGANIZATION CARD
+========================================================= */
+
+.organization-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 27px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(23, 33, 28, 0.07);
+
+    box-shadow:
+        0 14px 40px rgba(40, 30, 20, 0.06);
+
+    transition:
+        transform 0.45s cubic-bezier(.16, 1, .3, 1),
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+
+.organization-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 28px 60px rgba(40, 30, 20, 0.13);
+
+    border-color: rgba(23, 33, 28, 0.14);
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.organization-image {
+    height: 245px;
+
+    margin: 13px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe1d4,
+            #eee7ff
+        );
+}
+
+
+.organization-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.35),
+            transparent 70%
+        );
+
+    transform: translateX(-120%);
+
+    transition: transform 0.7s ease;
+}
+
+
+.organization-card:hover .organization-image::after {
+    transform: translateX(120%);
+}
+
+
+.organization-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.organization-card:hover .organization-image img {
+    transform: scale(1.08);
+}
+
+
+/* Organization type */
+
+.organization-type {
+    position: absolute;
+
+    left: 15px;
+    bottom: 15px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    backdrop-filter: blur(10px);
+
+    color: #17211c;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.organization-content {
+    padding: 8px 24px 25px;
+}
+
+
+.organization-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+
+.organization-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #fff1ea;
+
+    font-size: 19px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.organization-card:hover .organization-icon {
+    transform: rotate(-7deg) scale(1.08);
+}
+
+
+.organization-number {
+    color: #a3aaa6;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.organization-content h3 {
+    margin: 0 0 9px;
+
+    color: #17211c;
+
+    font-size: 22px;
+
+    letter-spacing: -0.5px;
+}
+
+
+.organization-content p {
+    margin: 0 0 18px;
+
+    color: #737c77;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+.organization-location {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #69736e;
+
+    font-size: 12px;
+
+    margin-bottom: 19px;
+}
+
+
+.organization-location svg {
+    color: #ff5a2a;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.organization-button {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(23, 33, 28, 0.08);
+
+    background: #f8f6f3;
+
+    color: #17211c;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.organization-button:hover {
+    background: #17211c;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+.organization-button svg {
+    transition: transform 0.3s ease;
+}
+
+
+.organization-button:hover svg {
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   CARD COLOR DETAILS
+========================================================= */
+
+.organization-card:nth-child(2) .organization-icon {
+    background: #eeeaff;
+}
+
+
+.organization-card:nth-child(2) .organization-location svg {
+    color: #7557e8;
+}
+
+
+.organization-card:nth-child(3) .organization-icon {
+    background: #e5f7ed;
+}
+
+
+.organization-card:nth-child(3) .organization-location svg {
+    color: #2d9a68;
+}
+
+
+/* =========================================================
+   DECORATIVE CARD DOT
+========================================================= */
+
+.organization-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    right: -30px;
+    bottom: 75px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(23, 33, 28, 0.07);
+
+    transition: transform 0.5s ease;
+}
+
+
+.organization-card:hover::before {
+    transform: scale(1.6);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heroContentIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes heroFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(25px);
+    }
+}
+
+
+@keyframes heroRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes labelPulse {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 180% center;
+    }
+}
+
+
+@keyframes shapeFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(12deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(18deg);
+    }
+}
+
+
+@keyframes shapeRotate {
+    0%,
+    100% {
+        border-radius: 28px;
+    }
+
+    50% {
+        border-radius: 50%;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .organization-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .organizations-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .organizations-heading p {
+        max-width: 600px;
+    }
+
+    .organizations-hero-shape {
+        right: 7%;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .organizations-hero {
+        min-height: 390px;
+
+        padding: 65px 24px 60px;
+    }
+
+    .organizations-hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .organizations-hero p {
+        font-size: 14px;
+    }
+
+    .organizations-hero-shape {
+        width: 60px;
+        height: 60px;
+
+        right: 25px;
+        bottom: 30px;
+
+        font-size: 27px;
+    }
+
+    .organizations-tools {
+        padding: 0 18px;
+
+        margin-top: -25px;
+    }
+
+    .organization-search {
+        padding: 15px 17px;
+    }
+
+    .organization-filters {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        padding-bottom: 5px;
+
+        scrollbar-width: none;
+    }
+
+    .organization-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .organization-filters button {
+        flex-shrink: 0;
+    }
+
+    .organizations-list {
+        margin-top: 75px;
+
+        padding: 0 18px;
+    }
+
+    .organizations-heading h2 {
+        font-size: 36px;
+    }
+
+    .organization-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .organization-image {
+        height: 230px;
+    }
+
+    .organization-content {
+        padding: 8px 20px 22px;
+    }
+
+}
